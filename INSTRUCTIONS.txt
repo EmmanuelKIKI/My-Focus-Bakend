@@ -1,0 +1,47 @@
+════════════════════════════════════════════════════
+  MyFocus – BACKEND  (à déployer sur Render.com)
+════════════════════════════════════════════════════
+
+ÉTAPE 1 – GitHub
+─────────────────
+1. Crée un compte sur github.com
+2. Nouveau repo : "myfocus-backend"
+3. Upload tous les fichiers de ce dossier
+
+ÉTAPE 2 – Render
+─────────────────
+1. Compte gratuit sur render.com
+2. New + → Web Service → connecte GitHub
+3. Build Command : npm install
+   Start Command : node server.js
+   Plan          : Free
+
+ÉTAPE 3 – Variables d'environnement (dans Render → Environment)
+────────────────────────────────────────────────────────────────
+  MONGODB_URI    = ton URI MongoDB Atlas
+  JWT_SECRET     = une_chaine_aleatoire_longue
+  JWT_EXPIRES_IN = 7d
+  PORT           = 3000
+  FRONTEND_URL   = https://TON-APP.netlify.app
+
+ÉTAPE 4 – Vérifier
+────────────────────
+Ouvre : https://TON-URL.onrender.com/api/health
+Résultat attendu : {"success":true,"message":"MyFocus API opérationnelle"}
+
+════════════════════════════════════════════════════
+  DEVENIR ADMINISTRATEUR
+════════════════════════════════════════════════════
+
+1. Crée ton compte sur l'app normalement (avec ton tel + mdp)
+
+2. Dans Render → ton service → onglet "Shell", tape :
+   node scripts/make-admin.js +22901234567
+   (remplace par ton vrai numéro)
+
+3. Résultat : "OK - Ton Nom est maintenant administrateur !"
+
+4. Accède au panneau admin via :
+   https://TON-APP.netlify.app/pages/admin.html
+
+════════════════════════════════════════════════════
