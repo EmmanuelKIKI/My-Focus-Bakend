@@ -1,0 +1,58 @@
+════════════════════════════════════════════════════
+  MyFocus – BACKEND  (à déployer sur Render.com)
+════════════════════════════════════════════════════
+
+ÉTAPE 1 – Mettre le code sur GitHub
+──────────────────────────────────
+1. Va sur github.com et crée un compte (si pas encore fait)
+2. Crée un nouveau dépôt (repo) : "myfocus-backend"
+3. Upload TOUS les fichiers de ce dossier dans ce repo
+   (glisse-dépose les fichiers sur GitHub depuis le navigateur)
+
+ÉTAPE 2 – Créer le service sur Render
+──────────────────────────────────────
+1. Va sur https://render.com et crée un compte gratuit
+2. Clique "New +" → "Web Service"
+3. Connecte ton compte GitHub et sélectionne "myfocus-backend"
+4. Configure comme suit :
+   - Name          : myfocus-api  (ou ce que tu veux)
+   - Region        : choisir la plus proche (ex: Frankfurt pour l'Afrique)
+   - Branch        : main
+   - Runtime       : Node
+   - Build Command : npm install
+   - Start Command : node server.js
+   - Plan          : Free
+
+ÉTAPE 3 – Ajouter les variables d'environnement
+────────────────────────────────────────────────
+Dans Render, va dans "Environment" et ajoute ces 5 variables :
+
+  Clé                Valeur
+  ─────────────────────────────────────────────────────
+  MONGODB_URI      → ton URI MongoDB Atlas
+                     ex: mongodb+srv://user:pass@cluster0.xxxxx.mongodb.net/myfocus
+  JWT_SECRET       → une longue chaîne aléatoire
+                     ex: myfocus_super_secret_2024_xYz789AbC
+  JWT_EXPIRES_IN   → 7d
+  PORT             → 3000
+  FRONTEND_URL     → https://TON-APP.netlify.app
+                     (tu mettras cette URL après avoir déployé sur Netlify)
+
+ÉTAPE 4 – Déployer
+───────────────────
+Clique "Create Web Service" → Render installe et démarre ton serveur.
+
+Attends 2-3 minutes puis ton URL sera disponible :
+→ https://myfocus-api.onrender.com  (exemple)
+
+ÉTAPE 5 – Vérifier que ça marche
+──────────────────────────────────
+Ouvre dans ton navigateur :
+  https://TON-URL-RENDER.onrender.com/api/health
+
+Tu dois voir :  {"success":true,"message":"MyFocus API opérationnelle 🚀"}
+
+✅ Une fois cette URL obtenue, ouvre le ZIP "netlify-frontend"
+   et suis les instructions dedans !
+
+════════════════════════════════════════════════════
